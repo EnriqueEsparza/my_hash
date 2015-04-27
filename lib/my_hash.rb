@@ -4,7 +4,12 @@ class MyHash
     @new_hash = {}
   end
 
-  define_method(:myStore) do |key, value|
-    @new_hash.store(key, value)
+  define_method(:store) do |key, value|
+    add_hash = {key => value}
+    @new_hash.merge!(add_hash)
+  end
+
+  define_method(:fetch) do |key|
+    @new_hash[key]
   end
 end
